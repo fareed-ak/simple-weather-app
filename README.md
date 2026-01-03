@@ -1,4 +1,5 @@
 # Weather App 🌦️
+[Live Demo](https://fareed-ak.github.io/simple-weather-app/)
 
 This is a simple weather app made using **HTML, CSS and JavaScript**.  
 I built this project to learn how APIs work and how to fetch real data using JavaScript.
