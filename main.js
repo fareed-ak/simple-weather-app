@@ -1,7 +1,8 @@
 const inputEl = document.getElementById('input-city');
 const buttonEl = document.getElementById('search-button');
 const apiEl = document.getElementById('api-input');
-const containerEl = document.querySelector('.container');
+const containerEl = document.querySelector('.bottom-container');
+apiEl.value = '286c1c43399ea97c25f452d2aa50ea64';
 
 async function getCoordinates() {
   const city = inputEl.value.trim();
@@ -70,40 +71,56 @@ async function getWeather(lat, lon, API_KEY) {
 
 
 function renderUi(data) {
+
   const city = data.name;
-  const country = data.sys.country;
-
   const windSpeed = data.wind.speed;
-
   const temp = data.main.temp;
-  const tempMAx = data.main.temp_max;
-  const tempMin = data.main.temp_min;
+  const feelsLike = data.main.feels_like;
   const humidity = data.main.humidity;
-
   const description = data.weather[0].description;
   const iconCode = data.weather[0].icon;
 
   containerEl.innerHTML = `
-  <div class="location-container">
-    <p class="location">${city} ${country}</p>
+  <div class="city-display">
+    <p class="city-name">&#128205; ${city}</p>
   </div>
 
-  <div class="icon-description-container">
-    <div class="icon-container">
-      <img src="https://openweathermap.org/img/wn/${iconCode}@2x.png" alt="icon" class="icon">
-    </div>
-    
-    <div class="description-container">
-      <p class="description">Condition: ${description}</p>
-      <p class="humidity">Humidity: ${humidity}%</p>
+  <div class="weather-display">
+    <img src="https://openweathermap.org/img/wn/${iconCode}@2x.png" alt="icon" class="icon">
+    <div class="temp-display">
+      <span class="current-temp">
+        ${temp}&deg;c
+      </span>
+      <span class="feels-like">
+        Feels Like: ${feelsLike}&deg;c
+      </span>
     </div>
   </div>
 
-  <div class="temp-wind-container">
-    <p class="temp">Current Tempreture: ${temp} &deg;C</p>
-    <p class="max-temp">Maximum Tempreture${tempMAx} &deg;C</p>
-    <p class="min-temp">Minimum Tempreture${tempMin} &deg;C</p>
-    <p class="wind-speed">Wind Speed: ${(windSpeed*3.6).toFixed(2)} Km/h</p>
+  <div class="outer-other-info">
+    <div class="inner-other-info">
+      <span class="info-icon">&#127788;</span>
+      <div class="text-info">
+        <span>wind Speed</span>
+        <span>${(windSpeed*3.6).toFixed(2)} km/h</span>
+      </div>
+    </div>
+
+    <div class="inner-other-info">
+      <span class="info-icon">&#128167;</span>
+      <div class="text-info">
+        <span>Humidity</span>
+        <span>${humidity}%</span>
+      </div>
+    </div>
+
+    <div class="inner-other-info">
+      <span class="info-icon">&#9729;</span>
+      <div class="text-info">
+        <span>Description</span>
+        <span>${description}</span>
+      </div>
+    </div>
   </div>
   `;
 }
