@@ -1,7 +1,6 @@
 * {
   padding: 0px;
   margin: 0px;
-  -webkit-tap-highlight-color: none;
 }
 
 html, body {
@@ -12,18 +11,46 @@ html, body {
   justify-content: center;
   align-items: center;
   color: white;
-  background-color: rgb(164, 235, 72);
+  background-color: rgb(72, 124, 238);
   font-weight: bold;
   font-size: 18px;
 }
 
 .outer-container {
-  padding: 2%;
-  width: 400px;
-  height: 500px;
+  padding: 18px;
   border: 2px solid black;
-  background-color: rgba(102, 74, 74, 0.3);
   border-radius: 10px;
+  background-color: rgba(177, 106, 106, 0.3);
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  width: 350px;
+}
+
+input {
+  height: 40px;
+  border: none;
+  border-radius: 100px;
+  padding-left: 15px;
+}
+
+#input-city {
+  font-size: 18px;
+  width: 80%;
+}
+
+#search-button {
+  background: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  font-size: 18px;
+}
+
+#search-button:active {
+  background-color: rgba(233, 229, 229, 0.3);
 }
 
 .top-container {
@@ -31,66 +58,88 @@ html, body {
   flex-direction: column;
   justify-content: space-around;
   gap: 10px;
-  height: 20%;
-  padding: 10px 0px;
   flex: 1;
+}
+
+.bottom-container {
+  display: flex;
+  flex-direction: column;
+  flex: 3;
+  justify-content: space-around
 }
 
 .search-container {
   display: flex;
-  justify-content: space-between;
-  height: 35%;
   gap: 10px;
+  justify-content: space-between;
 }
 
-#api-input {
-  height: 35%;
-  border: none;
-  text-align: center;
-  font-size: 15px;
-  border-radius: 5px;
+.city-display {
+  display: flex;
+  justify-content: end;
+  font-size: 1rem;
 }
 
-#input-city {
-  flex: 2;
-  border: none;
-  font-size: 15px;
-  padding-left: 10px;
-  border-radius: 5px;
+.weather-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  padding: 5px;
 }
 
-#search-button {
-  flex: 1;
-  border-radius: 5px;
-  border: none;
-  color: white;
-  background-color: blue;
-  font-size: 15px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-#search-button:active {
-  background-color: white;
-  color: blue;
-}
-
-.error {
-  font-size: 20px;
-  color: red;
-}
-
-.container {
+.temp-display {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  gap: 20px;
-  height: 76%;
-  flex: 1;
 }
 
+.current-temp {
+  font-size: 2.5rem;
+}
+
+.outer-other-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.inner-other-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  background-color: rgba(236, 233, 233, 0.1);
+  padding: 10px;
+  width: 25%;
+  border-radius: 10px;
+}
+
+.text-info {
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-info span {
+  text-align: center;
+}
+
+.info-icon {
+  font-size: 40px;
+}
+
+@media (max-width: 500px) {
+  .outer-container {
+    width: 80%;
+    height: 500px;
+  }
+}
+
+
 .error-container,
-.loading-container {
+.loading-container,
+.empty-container {
   width: 100%;
   height: 100%;
   display: flex;
@@ -98,23 +147,8 @@ html, body {
   align-items: center;
 }
 
-.icon-description-container {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.icon {
-  border: 2px solid black;
-}
-
-@media (max-width: 500px) {
-  .outer-container {
-    width: 75%;
-    height: 70%;
-    padding: 5%;
-  }
-  #input-city {
-  width: 40%;
-  }
+.error {
+  color: red;
+  font-size: 20px;
+  font-weight: bold;
 }
