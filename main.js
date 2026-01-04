@@ -101,7 +101,7 @@ function renderUi(data) {
       <span class="info-icon">&#127788;</span>
       <div class="text-info">
         <span>wind Speed</span>
-        <span>${(windSpeed*3.6).toFixed(2)} km/h</span>
+        <span>${(windSpeed*1.6).toFixed(2)} km/h</span>
       </div>
     </div>
 
