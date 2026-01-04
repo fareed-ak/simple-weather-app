@@ -2,7 +2,6 @@ const inputEl = document.getElementById('input-city');
 const buttonEl = document.getElementById('search-button');
 const apiEl = document.getElementById('api-input');
 const containerEl = document.querySelector('.bottom-container');
-apiEl.value = '286c1c43399ea97c25f452d2aa50ea64';
 
 async function getCoordinates() {
   const city = inputEl.value.trim();
